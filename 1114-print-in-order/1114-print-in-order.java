@@ -7,8 +7,8 @@ class Foo {
     public void first(Runnable printFirst) throws InterruptedException {
         synchronized(this){
             printFirst.run();
-            notifyAll();
             done1=true;
+            notifyAll();
         }
         
     }
@@ -30,7 +30,6 @@ class Foo {
                 wait();
             }
             printThird.run();
-            notifyAll();
         }
     }
 }
