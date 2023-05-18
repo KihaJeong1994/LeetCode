@@ -1,18 +1,18 @@
 class Solution {
+    List<String> answerList = new ArrayList<>();
+    int globalN;
     public List<String> generateParenthesis(int n) {
-        Set<String> answerSet = new HashSet<>();
-        if( n == 1){
-            answerSet.add("()");
+        globalN = n;
+        recFunc("(",1,1,0);
+        return answerList;
+    }
+
+    private void recFunc(String s , int length, int leftCnt, int rightCnt) {
+        if(length == globalN*2){
+            answerList.add(s);
         }else {
-            for(int i=1;i<=n-1;i++){
-                for(String s1 : generateParenthesis(i)){
-                    for(String s2 : generateParenthesis(n-i)){
-                        answerSet.add(s1+s2);
-                    }
-                    if(i==n-1)answerSet.add("("+s1+")");
-                }
-            }
+            if(leftCnt>rightCnt) recFunc(s+")",length+1,leftCnt,rightCnt+1);
+            if(leftCnt<globalN) recFunc(s+"(",length+1,leftCnt+1,rightCnt);
         }
-        return answerSet.stream().collect(Collectors.toList());
     }
 }
