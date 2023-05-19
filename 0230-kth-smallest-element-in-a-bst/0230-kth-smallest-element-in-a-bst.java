@@ -14,25 +14,16 @@
  * }
  */
 class Solution {
-    int order;
-    int globalAnswer, globalK;
-    boolean finished;
-    public int kthSmallest(TreeNode root, int k) {
-        globalK= k;
-        traverse(root);
-        return globalAnswer;
-    }
-
-    private void traverse(TreeNode node) {
-        if (node.left != null && !finished) traverse(node.left);
-        if(!finished){
-            order++;
-            if (order == globalK) {
-                globalAnswer = node.val;
-                finished = true;
-                return;
+        public int kthSmallest(TreeNode root, int k) {
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        while (true){
+            while(root!=null){
+                stack.push(root);
+                root = root.left;
             }
+            root = stack.pop();
+            if(--k==0) return root.val;
+            root = root.right;
         }
-        if (node.right != null && !finished) traverse(node.right);
     }
 }
