@@ -7,11 +7,11 @@ class Solution {
         for(int i=0;i<m;i++){
             for(int j=0; j<n; j++){
                 int neighbors = neighborCnt(i,j,board);
-                boolean live = board[i][j] == 1;
-                if(neighbors < 2 && live) isAlive[i][j] = false;
-                else if (neighbors>=2 && neighbors<=3 && live) isAlive[i][j] = true;
-                else if (neighbors>3 && live) isAlive[i][j] = false;
-                else if (neighbors==3 && !live) isAlive[i][j] = true;
+                // boolean live = board[i][j] == 1;
+                if(neighbors < 2 && board[i][j] == 1) isAlive[i][j] = false;
+                else if (neighbors>=2 && neighbors<=3 && board[i][j] == 1) isAlive[i][j] = true;
+                else if (neighbors>3 && board[i][j] == 1) isAlive[i][j] = false;
+                else if (neighbors==3 && board[i][j] != 1) isAlive[i][j] = true;
             }
         }
         
