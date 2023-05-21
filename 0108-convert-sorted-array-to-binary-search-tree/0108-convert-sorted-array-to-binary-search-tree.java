@@ -15,11 +15,7 @@
  */
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        int mid = nums.length/2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = getTreeNodeFromTo(0,mid-1, nums);
-        root.right = getTreeNodeFromTo(mid+1, nums.length-1, nums);
-        return root;
+        return getTreeNodeFromTo(0,nums.length-1,nums);
     }
     
     private TreeNode getTreeNodeFromTo(int from, int to, int[] nums){
