@@ -10,6 +10,7 @@ class Solution {
                 majority = n;
                 majorityCnt = cnt;
             }
+            if(cnt > nums.length/2) return majority;
         }
         return majority;
         
