@@ -16,7 +16,10 @@ public class Solution {
         while(hare!=null && hare.next!=null){
             hare = hare.next.next;
             turtle = turtle.next;
-            if(hare==turtle){
+            if(hare==null){
+                return false;
+            }
+            if(hare.equals(turtle)){
                 return true;
             }
         }
