@@ -11,10 +11,10 @@ class Solution {
     private boolean isPalindromic(int n,int i){
         Stack<String> stack = new Stack<>();
         while(n>=i){
-            stack.add(n%i+"");
+            stack.add(Integer.toString(n%i));
             n/=i;
         }
-        stack.add(n+"");
+        stack.add(Integer.toString(n));
         StringBuilder sb = new StringBuilder();
         while(!stack.isEmpty()){
             sb.append(stack.pop());
