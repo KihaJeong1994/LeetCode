@@ -11,15 +11,16 @@
 
 class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
-        List<List<Integer>> answerList = new ArrayList<>();
+        List<List<Integer>> answerList = new ArrayList<>();        
+        int end = 1000;
         for(int x=1;x<=1000;x++){
             int start = 1;
-            int end = 1000;
             while(start<=end){
                 int y = (start+end)/2;
                 int result = customfunction.f(x,y);
                 if(result==z){
                     answerList.add(Arrays.asList(x,y));
+                    end = y;
                     break;
                 }else if(result<z){
                     start = y +1;
