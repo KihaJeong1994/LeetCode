@@ -11,6 +11,6 @@ class Solution {
                 }
             }
         }
-        return Integer.parseInt(answer+"");
+        return answer-'0';
     }
 }
