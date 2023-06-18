@@ -1,12 +1,16 @@
 class Solution {
     public int minPartitions(String n) {
-        int answer = 1;
+        char answer = '0';
         for(int i=0; i<n.length(); i++){
-            int toInt = Integer.parseInt(n.charAt(i)+"");
-            if(toInt>answer){
-                answer = toInt;
+            char c = n.charAt(i);
+            if(c=='9'){
+                return 9;
+            }else{
+                if(c>answer){
+                    answer = c;
+                }
             }
         }
-        return answer;
+        return Integer.parseInt(answer+"");
     }
 }
