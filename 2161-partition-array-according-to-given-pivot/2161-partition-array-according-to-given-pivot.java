@@ -15,6 +15,7 @@ class Solution {
         
         while(low<=high){
             answer[low++] = pivot;
+            answer[high--] = pivot;
         }
         return answer;
         
