@@ -15,27 +15,16 @@
  */
 class FindElements {
     private TreeNode root;
+    private Set<Integer> elements;
 
     public FindElements(TreeNode root) {
         this.root = root;
+        elements = new HashSet<>();
         recover(root);
     }
     
     public boolean find(int target) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while(!queue.isEmpty()){
-            TreeNode node = queue.poll();
-            if(node.val==target) return true;
-            if(node.val>target) return false;
-            if(node.left!=null){
-                queue.add(node.left);
-            }
-            if(node.right!=null){
-                queue.add(node.right);
-            }
-        }
-        return false;
+        return elements.contains(target);
     }
     
     private void recover(TreeNode root){
@@ -44,6 +33,7 @@ class FindElements {
         queue.add(root);
         while(!queue.isEmpty()){
             TreeNode node = queue.poll();
+            elements.add(node.val);
             if(node.left!=null){
                 node.left.val = node.val*2+1;
                 queue.add(node.left);
