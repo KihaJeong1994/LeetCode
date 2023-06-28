@@ -11,13 +11,16 @@
 class Solution {
     public int pairSum(ListNode head) {
         int answer = 0;
-        List<Integer> list = new ArrayList<>();
-        while (head!=null){
-            list.add(head.val);
+        ListNode fast = head;
+        Stack<Integer> stack = new Stack<>();
+        while (fast!=null){
+            stack.push(head.val);
             head = head.next;
+            fast = fast.next.next;
         }
-        for(int i=0;i<list.size()/2;i++){
-            answer = Math.max(answer, list.get(i)+list.get(list.size()-1-i));
+        while (!stack.isEmpty()){
+            answer = Math.max(stack.pop() + head.val, answer);
+            head = head.next;
         }
         return answer;
     }
