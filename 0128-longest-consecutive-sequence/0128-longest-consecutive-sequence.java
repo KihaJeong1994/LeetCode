@@ -4,14 +4,14 @@ class Solution {
         for(int n: nums){
             set.add(n);
         }
-        List<Integer> firstNodes = new ArrayList<>();
-        for(int n: set.stream().toList()){
+        List<Integer> firstNums = new ArrayList<>();
+        for(int n: nums){
             if(!set.contains(n-1)){
-                firstNodes.add(n);
+                firstNums.add(n);
             }
         }
         int max = 0;
-        for(int n : firstNodes){
+        for(int n : firstNums){
             int len = 0;
             while (set.contains(n)){
                 len++;
