@@ -1,34 +1,34 @@
 class Solution {
     public int longestConsecutive(int[] nums) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-
-        for(int n : nums){
-            pq.add(n);
+        Map<Integer, Node> nodeMap = new HashMap<>();
+        List<Node> firstNodes = new ArrayList<>();
+        for(int num : nums){
+            Node node = new Node();
+            nodeMap.put(num, node);
         }
 
-        Integer prev = null;
-        int max = 0;
-        int len = 0;
-        while (!pq.isEmpty()){
-            int n = pq.poll();
-            if(prev!=null){
-                if(prev == n-1){
-                    len++;
-                }else if(prev==n){
-                    continue;
-                }
-                else{
-                    len = 1;
-                }
-                prev = n;
-
-            }else{
-                prev = n;
-                len = 1;
+        for(int num : nodeMap.keySet()){
+            if(!nodeMap.containsKey(num-1)){
+                firstNodes.add(nodeMap.get(num));
             }
-            max = Math.max(len,max);
+            if(nodeMap.containsKey(num+1)){
+                nodeMap.get(num).next = nodeMap.get(num+1);
+            }
+        }
+        int max = 0;
+        for(Node node : firstNodes){
+            int len = 0;
+            while (node!=null){
+                len++;
+                node = node.next;
+            }
+            max = Math.max(max,len);
         }
         return max;
+    }
+
+    class Node{
+        Node next;
     }
 
 }
