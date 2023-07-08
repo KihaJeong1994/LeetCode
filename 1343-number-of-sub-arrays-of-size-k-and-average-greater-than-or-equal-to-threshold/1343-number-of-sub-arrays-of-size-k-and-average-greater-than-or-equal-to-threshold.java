@@ -2,17 +2,16 @@ class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
         int answer = 0;
         int len = arr.length;
-        Integer slidingWindowSum = null;
+        int slidingWindowSum = 0;
         int thresholdMul = threshold*k;
-        for(int i=0; i<len-k+1; i++){
-            if(slidingWindowSum==null){
-                slidingWindowSum = 0;
-                for(int j=i; j<i+k; j++){
-                    slidingWindowSum+=arr[j];
-                }
-            }else{
-                slidingWindowSum = slidingWindowSum - arr[i-1] + arr[i+k-1];
-            }
+        for(int j=0; j<k; j++){
+            slidingWindowSum+=arr[j];
+        }
+        if(slidingWindowSum>=thresholdMul){
+            answer++;
+        }
+        for(int i=1; i<len-k+1; i++){
+            slidingWindowSum = slidingWindowSum - arr[i-1] + arr[i+k-1];
             if(slidingWindowSum>=thresholdMul){
                 answer++;
             }
