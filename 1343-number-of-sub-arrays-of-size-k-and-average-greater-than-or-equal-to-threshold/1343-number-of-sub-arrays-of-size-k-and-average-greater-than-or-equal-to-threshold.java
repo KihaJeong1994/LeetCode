@@ -2,19 +2,22 @@ class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
         int answer = 0;
         int len = arr.length;
+        Integer slidingWindowSum = null;
+        int thresholdMul = threshold*k;
         for(int i=0; i<len-k+1; i++){
-            if(getAvg(arr,i,i+k-1)>=threshold){
+            if(slidingWindowSum==null){
+                slidingWindowSum = 0;
+                for(int j=i; j<i+k; j++){
+                    slidingWindowSum+=arr[j];
+                }
+            }else{
+                slidingWindowSum = slidingWindowSum - arr[i-1] + arr[i+k-1];
+            }
+            if(slidingWindowSum>=thresholdMul){
                 answer++;
             }
         }
         return answer;
     }
     
-    private int getAvg(int[] arr, int start, int end){
-        int sum = 0;
-        for(int i=start; i<=end; i++){
-            sum += arr[i];
-        }
-        return sum/(end-start+1);
-    }
 }
