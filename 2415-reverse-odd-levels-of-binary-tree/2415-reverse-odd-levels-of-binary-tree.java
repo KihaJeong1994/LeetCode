@@ -18,7 +18,7 @@ class Solution {
         // bfs with holding level
         Queue<Info> queue = new LinkedList<>();
         Stack<TreeNode> stack = new Stack<>();
-        queue.add(new Info(root,0,0));
+        queue.add(new Info(root,0));
         int idx = 0;
         int level = 0;
         while(!queue.isEmpty()){
@@ -39,7 +39,7 @@ class Solution {
                         stack.push(info.node.left);
                     }
                 }
-                queue.add(new Info(info.node.left,idx,info.level+1));
+                queue.add(new Info(info.node.left,info.level+1));
                 idx++;
             }
             if(info.node.right!=null){
@@ -54,7 +54,7 @@ class Solution {
                         stack.push(info.node.right);
                     }
                 }
-                queue.add(new Info(info.node.right,idx,info.level+1));
+                queue.add(new Info(info.node.right,info.level+1));
                 idx++;
             }
         }
@@ -64,11 +64,9 @@ class Solution {
 
     class Info{
         TreeNode node;
-        int idx;
         int level;
-        Info(TreeNode node, int idx, int level){
+        Info(TreeNode node, int level){
             this.node = node;
-            this.idx = idx;
             this.level = level;
         }
 
@@ -76,7 +74,6 @@ class Solution {
         public String toString() {
             return "Info{" +
                     "node=" + node +
-                    ", idx=" + idx +
                     ", level=" + level +
                     '}';
         }
