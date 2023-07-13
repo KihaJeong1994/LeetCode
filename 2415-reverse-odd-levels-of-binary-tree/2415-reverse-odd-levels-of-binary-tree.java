@@ -17,37 +17,45 @@ class Solution {
     public TreeNode reverseOddLevels(TreeNode root) {
         // bfs with holding level
         Queue<Info> queue = new LinkedList<>();
-        Map<Integer,TreeNode> map = new HashMap<>();
+        Stack<TreeNode> stack = new Stack<>();
         queue.add(new Info(root,0,0));
         int idx = 0;
         int level = 0;
         while(!queue.isEmpty()){
             Info info = queue.poll();
-            if(info.level%2==1){
-                double levelLength = Math.pow(2, info.level);
-                if(info.idx>=levelLength/2){
-                    TreeNode treeNode1 = map.get(info.idx);
-                    TreeNode treeNode2 = map.get((int)levelLength-1-info.idx);
-                    int tmp = treeNode1.val;
-                    treeNode1.val = treeNode2.val;
-                    treeNode2.val = tmp;
-                }
-            }
             if(level!=info.level){
                 idx = 0;
                 level = info.level;
             }
             if(info.node.left!=null){
                 if(info.level%2==0){
-                    map.put(idx,info.node.left);
+                    double levelLength = Math.pow(2, info.level+1);
+                    if(idx>=levelLength/2){
+                        TreeNode reverseNode = stack.pop();
+                        int tmp = reverseNode.val;
+                        reverseNode.val = info.node.left.val;
+                        info.node.left.val = tmp;
+                    }else {
+                        stack.push(info.node.left);
+                    }
                 }
-                queue.add(new Info(info.node.left,idx++,info.level+1));
+                queue.add(new Info(info.node.left,idx,info.level+1));
+                idx++;
             }
             if(info.node.right!=null){
                 if(info.level%2==0){
-                    map.put(idx,info.node.right);
+                    double levelLength = Math.pow(2, info.level+1);
+                    if(idx>=levelLength/2){
+                        TreeNode reverseNode = stack.pop();
+                        int tmp = reverseNode.val;
+                        reverseNode.val = info.node.right.val;
+                        info.node.right.val = tmp;
+                    }else {
+                        stack.push(info.node.right);
+                    }
                 }
-                queue.add(new Info(info.node.right,idx++,info.level+1));
+                queue.add(new Info(info.node.right,idx,info.level+1));
+                idx++;
             }
         }
         return root;
@@ -64,6 +72,14 @@ class Solution {
             this.level = level;
         }
 
+        @Override
+        public String toString() {
+            return "Info{" +
+                    "node=" + node +
+                    ", idx=" + idx +
+                    ", level=" + level +
+                    '}';
+        }
     }
     
     
