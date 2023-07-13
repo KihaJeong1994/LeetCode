@@ -27,34 +27,36 @@ class Solution {
                 idx = 0;
                 level = info.level;
             }
-            if(info.node.left!=null){
+            double levelLength = Math.pow(2, info.level+1);
+            TreeNode node = info.node;
+            TreeNode leftNode = node.left;
+            if(leftNode !=null){
                 if(info.level%2==0){
-                    double levelLength = Math.pow(2, info.level+1);
                     if(idx>=levelLength/2){
                         TreeNode reverseNode = stack.pop();
                         int tmp = reverseNode.val;
-                        reverseNode.val = info.node.left.val;
-                        info.node.left.val = tmp;
+                        reverseNode.val = leftNode.val;
+                        leftNode.val = tmp;
                     }else {
-                        stack.push(info.node.left);
+                        stack.push(leftNode);
                     }
                 }
-                queue.add(new Info(info.node.left,info.level+1));
+                queue.add(new Info(leftNode,info.level+1));
                 idx++;
             }
-            if(info.node.right!=null){
+            TreeNode rightNode = node.right;
+            if(rightNode !=null){
                 if(info.level%2==0){
-                    double levelLength = Math.pow(2, info.level+1);
                     if(idx>=levelLength/2){
                         TreeNode reverseNode = stack.pop();
                         int tmp = reverseNode.val;
-                        reverseNode.val = info.node.right.val;
-                        info.node.right.val = tmp;
+                        reverseNode.val = rightNode.val;
+                        rightNode.val = tmp;
                     }else {
-                        stack.push(info.node.right);
+                        stack.push(rightNode);
                     }
                 }
-                queue.add(new Info(info.node.right,info.level+1));
+                queue.add(new Info(rightNode,info.level+1));
                 idx++;
             }
         }
@@ -68,14 +70,6 @@ class Solution {
         Info(TreeNode node, int level){
             this.node = node;
             this.level = level;
-        }
-
-        @Override
-        public String toString() {
-            return "Info{" +
-                    "node=" + node +
-                    ", level=" + level +
-                    '}';
         }
     }
     
