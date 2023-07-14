@@ -1,12 +1,16 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        // easy way
-        // 1. sort the nums by descending order
-        // 5 4 3 2
-        // 2. multiply the first and second one
-        // O(Nlog(N))
-        Arrays.sort(nums);
         int n = nums.length;
-        return (nums[n-1]-1)*(nums[n-2]-1);
+        int max = 0;
+        int second = 0;
+        for(int i=0; i<n; i++){
+            if(nums[i]>max){
+                second = max;
+                max = nums[i];
+            }else if(nums[i]>second){
+                second = nums[i];
+            }
+        }
+        return (max-1)*(second-1);
     }
 }
