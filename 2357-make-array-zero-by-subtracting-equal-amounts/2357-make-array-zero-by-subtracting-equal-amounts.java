@@ -13,17 +13,14 @@ class Solution {
         
         // Set
         // the minimum number of operation = distinct number size of nums except 0
-        // if there is no zero, you don't have to minus 1 to except 0
         // 1 5 0 3 5
         // 1 -> 0 4 0 2 4
         // 2 -> 0 2 0 0 2 here you can see that same numbers are processes by once
         // 2 -> 0 0 0 0 0 
         Set<Integer> set = new HashSet<>();
-        boolean isZeroAtFirst = false;
         for(int n: nums){
-            set.add(n);
-            if(n==0) isZeroAtFirst = true;
+            if(n>0) set.add(n);
         }
-        return isZeroAtFirst?set.size()-1:set.size();
+        return set.size();
     }
 }
