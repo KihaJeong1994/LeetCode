@@ -1,51 +1,31 @@
 class Solution {
     public int maxConsecutiveAnswers(String answerKey, int k) {
-        int start = 1;
-        int end = answerKey.length();
-        int max = 1;
-        while(start<=end){
-            int maxSize = (start+end)/2;
-            int cntT = 0;
-            int cntF = 0;
-            boolean isValid = false;
-            // check if maxSize Substring is valid
-            for(int i=0; i<answerKey.length()-maxSize+1; i++){
-                if(i==0){
-                    for(int j=0; j<maxSize;j++){
-                        if(answerKey.charAt(j)=='T'){
-                            cntT++;
-                        } else{
-                            cntF++;
-                        }
-                    }
-                }else{
-                    // add count last one and minus count first one
-                    if(answerKey.charAt(i-1)=='T'){
-                        cntT--;
-                    } else{
-                        cntF--;
-                    }
-                    if(answerKey.charAt(i+maxSize-1)=='T'){
-                        cntT++;
-                    } else{
-                        cntF++;
-                    }
-                }
-                // if maxSize Substring is valid
-                if(Math.min(cntT,cntF)<=k){
-                    isValid = true;
-                    break;
-                }
-            }
-            if(isValid){
-                start = maxSize + 1;
-                max = maxSize;
-            }else{
-                end = maxSize-1;
-            }
+        int len = 1;
+        int start = 0;
+        int end = start + len -1;
+        int strLen = answerKey.length();
 
+        int cntT = 0;
+        int cntF = 0;
+        while (end<=strLen-1){
+            if(answerKey.charAt(end)=='T'){
+                cntT++;
+            }else {
+                cntF++;
+            }
+            int minCnt = Math.min(cntT, cntF);
+            end++;
+            if(minCnt>k){
+                start++;
+                if(answerKey.charAt(start-1)=='T'){
+                    cntT--;
+                }else {
+                    cntF--;
+                }
+            }else {
+                len = Math.max(len, cntT+cntF);
+            }
         }
-        return max;
-
+        return len;
     }
 }
