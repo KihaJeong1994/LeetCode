@@ -16,8 +16,6 @@ class Solution {
             start++;
             end--;
         }
-        StringBuilder sb = new StringBuilder();
-        for(char c : charArr) sb.append(c);
-        return sb.toString();
+        return new String(charArr);
     }
 }
