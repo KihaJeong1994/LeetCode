@@ -1,22 +1,16 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
-        for(int i=nums.length-1; i>0; i--){
-            for(int j=0; j<i; j++){
-                if(nums[j]==val){
-                    int tmp = nums[j];
-                    nums[j] = nums[j+1];
-                    nums[j+1] = tmp;
-                }
+        int i = 0; // the last index that should be changed
+        int answer = 0;
+        for(int j=0; j<nums.length; j++){
+            if(nums[j]!=val){
+                answer++;
+                int tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tmp;
+                i++;
             }
         }
-        int cnt = 0;
-        for(int n: nums){
-            if(n!=val){
-                cnt++;
-            }else {
-                break;
-            }
-        }
-        return cnt;
+        return answer;
     }
 }
