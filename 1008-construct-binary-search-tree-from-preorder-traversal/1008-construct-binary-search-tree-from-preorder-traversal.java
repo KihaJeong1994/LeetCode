@@ -21,24 +21,16 @@ class Solution {
 
     TreeNode helper(int[] preorder, int start, int end){
         TreeNode root = new TreeNode(preorder[start]);
-        int firstLarger = binarySearch(preorder,start,end);
-        if(start<preorder.length &&firstLarger>start+1) root.left = helper(preorder, start+1, firstLarger-1);
+        int firstLarger = fullSearch(preorder,start,end);
+        if(start<preorder.length &&firstLarger>start+1 ) root.left = helper(preorder, start+1, firstLarger-1);
         if(end<preorder.length && firstLarger<=end) root.right = helper(preorder, firstLarger, end);
         return root;
     }
 
-    int binarySearch(int[] preorder, int start, int end){
-        int left = start;
-        int right = end+1;
-        int target = preorder[start]+1;
-        while (left<right){
-            int mid = (left+right)/2;
-            if(preorder[mid]<target){
-                left = mid+1;
-            }else {
-                right = mid;
-            }
+    int fullSearch(int[] preorder, int start, int end){
+        for(int i = start+1; i<=end; i++){
+            if(preorder[i]>preorder[start]) return i;
         }
-        return left;
+        return end+1;
     }
 }
