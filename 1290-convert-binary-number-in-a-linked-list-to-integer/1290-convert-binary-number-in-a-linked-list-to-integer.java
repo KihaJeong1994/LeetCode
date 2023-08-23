@@ -9,12 +9,12 @@
  * }
  */
 class Solution {
-    StringBuilder sb = new StringBuilder();
     public int getDecimalValue(ListNode head) {
+        int num = 0;
         while(head!=null){
-            sb.append(head.val);
+            num = (num<<1) | head.val;
             head = head.next;
         }
-        return Integer.parseInt(sb.toString(),2);
+        return num;
     }
 }
