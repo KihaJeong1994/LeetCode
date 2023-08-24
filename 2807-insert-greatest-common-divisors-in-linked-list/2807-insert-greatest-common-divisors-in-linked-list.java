@@ -23,14 +23,16 @@ class Solution {
     }
     
     private int greatestCommonDivisor(int a, int b){
-        int min = Math.min(a,b);
-        int divisor = 1;
-        for(int i=min; i>=1; i--){
-            if(a%i==0 && b%i==0){
-                divisor = i;
-                break;
-            }
+        if(a<b){
+            int temp = a;
+            a = b;
+            b = temp;
         }
-        return divisor;
+        while(b!=0){
+            int r = a%b;
+            a = b;
+            b = r;
+        }
+        return a;
     }
 }
