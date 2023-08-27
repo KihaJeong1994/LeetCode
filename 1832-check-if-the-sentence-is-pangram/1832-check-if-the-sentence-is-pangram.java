@@ -1,10 +1,15 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        Set<Character> set = new HashSet<>();
+        int cnt = 0;
+        boolean[] exists = new boolean[26];
         char[] charArray = sentence.toCharArray();
         for(char c : charArray){
-            set.add(c);
+            if(!exists[c-'a']){
+                exists[c-'a'] = true;
+                cnt++;
+            }
+            if(cnt==26) return true;
         }
-        return set.size()==26;
+        return false;
     }
 }
