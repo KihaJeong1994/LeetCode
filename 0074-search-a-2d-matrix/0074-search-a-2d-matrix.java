@@ -38,11 +38,8 @@ class Solution {
                 return mid;
             }
         }
-        if(t>=matrix.length){
+        if(t>=matrix.length || b<0){
             return t-1;
-        }
-        if(b<0){
-            return 0;
         }
         if(matrix[t][0]<target){
             return t;
