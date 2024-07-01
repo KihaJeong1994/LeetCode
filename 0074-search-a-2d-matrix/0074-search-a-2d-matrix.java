@@ -1,31 +1,54 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int l = 0, h = matrix.length;
-        while (l<h){
-            int m = (l+h)/2;
-            if(matrix[m][0]<target) l = m+1;
-            else h = m;
+        // search in the first integer of each row first O(log m)
+        int row = getRow(matrix, target);
+        if(row==-1){
+            return false;
         }
-        // if matrix[l][0] equals target, then return true
-        if(l< matrix.length && matrix[l][0]==target) return true;
-
-        // if not equals, l means the index where target should be.
-        // if the matrix's first nums is 1, 3 and target is 2,
-        // l will be 1, but it should be in matrix[0]
-        // so I will check matrix[l-1]
-        if(l==0) return false;
-        // l-1 row
-        return binarySearchExistence(matrix[l-1],target);
+        if(matrix[row][0]==target){
+            return true;
+        }
+        // search in that row next O(log n)
+        int l = 0;
+        int r = matrix[row].length-1;
+        while(l<=r){
+            int mid = (l+r)/2;
+            if(matrix[row][mid]<target){
+                l = mid+1;
+            }else if(matrix[row][mid]>target){
+                r = mid -1;
+            }else{
+                return true;
+            }
+        }
+        return false;
     }
-
-    private boolean binarySearchExistence(int[] nums, int target){
-        int l = 0, h = nums.length;
-        while (l<h){
-            int m = (l+h)/2;
-            if(nums[m]<target) l = m+1;
-            else h = m;
+    
+    private int getRow(int[][] matrix, int target){
+        int t = 0;
+        int b = matrix.length-1;
+        while(t<=b){
+            int mid = (t+b)/2;
+            int firstNum = matrix[mid][0];
+            if(firstNum<target){
+                t = mid+1;
+            }else if(firstNum>target){
+                b = mid-1;
+            }else{
+                return mid;
+            }
         }
-        if(l>= nums.length) return false;
-        return nums[l]==target ? true : false;
+        if(t>=matrix.length){
+            return t-1;
+        }
+        if(b<0){
+            return 0;
+        }
+        if(matrix[t][0]<target){
+            return t;
+        }else{
+            return t-1;
+        }
+        
     }
 }
