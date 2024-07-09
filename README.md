@@ -27,12 +27,14 @@
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/KihaJeong1994/LeetCode/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0424-longest-repeating-character-replacement](https://github.com/KihaJeong1994/LeetCode/tree/master/0424-longest-repeating-character-replacement) |
+| [0567-permutation-in-string](https://github.com/KihaJeong1994/LeetCode/tree/master/0567-permutation-in-string) |
 | [1023-time-based-key-value-store](https://github.com/KihaJeong1994/LeetCode/tree/master/1023-time-based-key-value-store) |
 ## String
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/KihaJeong1994/LeetCode/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0424-longest-repeating-character-replacement](https://github.com/KihaJeong1994/LeetCode/tree/master/0424-longest-repeating-character-replacement) |
+| [0567-permutation-in-string](https://github.com/KihaJeong1994/LeetCode/tree/master/0567-permutation-in-string) |
 | [1023-time-based-key-value-store](https://github.com/KihaJeong1994/LeetCode/tree/master/1023-time-based-key-value-store) |
 ## Design
 |  |
@@ -55,4 +57,9 @@
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/KihaJeong1994/LeetCode/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0424-longest-repeating-character-replacement](https://github.com/KihaJeong1994/LeetCode/tree/master/0424-longest-repeating-character-replacement) |
+| [0567-permutation-in-string](https://github.com/KihaJeong1994/LeetCode/tree/master/0567-permutation-in-string) |
+## Two Pointers
+|  |
+| ------- |
+| [0567-permutation-in-string](https://github.com/KihaJeong1994/LeetCode/tree/master/0567-permutation-in-string) |
 <!---LeetCode Topics End-->
