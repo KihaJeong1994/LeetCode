@@ -10,20 +10,16 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        if(head == null) return null;
         ListNode node = head;
-        Deque<Integer> stack = new ArrayDeque<>();
+        ListNode reverseNode = null;
+        ListNode reverseHead = null;
         while(node!=null){
-            stack.offer(node.val);
+            ListNode newNode = new ListNode(node.val);
+            newNode.next = reverseNode;
             node = node.next;
+            reverseNode = newNode;
+            if(node==null) reverseHead = reverseNode;
         }
-        ListNode poppedNodeHead = new ListNode(stack.pollLast());
-        ListNode node2 = poppedNodeHead;
-        while(!stack.isEmpty()){
-            ListNode poppedNodeNext = new ListNode(stack.pollLast());
-            node2.next = poppedNodeNext;
-            node2 = poppedNodeNext;
-        }
-        return poppedNodeHead;
+        return reverseHead;
     }
 }
