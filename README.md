@@ -89,4 +89,20 @@
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/KihaJeong1994/LeetCode/tree/master/0002-add-two-numbers) |
+## Tree
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0226-invert-binary-tree) |
+## Depth-First Search
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0226-invert-binary-tree) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0226-invert-binary-tree) |
+## Binary Tree
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0226-invert-binary-tree) |
 <!---LeetCode Topics End-->
