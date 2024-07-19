@@ -1,21 +1,20 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        // phase 1
-        int start = nums[0];
-        int hair = start;
-        int tortoise = start;
-        while(true){
-            hair = nums[nums[hair]];
+        // https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_Tortoise_and_Hare
+        // find cycle
+        int hare = 0;
+        int tortoise = 0;
+        do{
+            hare = nums[nums[hare]];
             tortoise = nums[tortoise];
-            if(hair==tortoise){
-                // phase 2
-                tortoise = start;
-                while(hair!=tortoise){
-                    hair = nums[hair];
-                    tortoise = nums[tortoise];
-                }
-                return hair;
-            }
+        }while(hare!=tortoise);
+        // start another index
+        int answer = 0;
+        while(answer!=tortoise){
+            tortoise = nums[tortoise];
+            answer = nums[answer];
         }
+        return answer;
+        
     }
 }
