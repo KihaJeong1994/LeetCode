@@ -50,6 +50,7 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0070-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0070-climbing-stairs) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/KihaJeong1994/LeetCode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 ## Stack
 |  |
@@ -96,6 +97,7 @@
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/KihaJeong1994/LeetCode/tree/master/0002-add-two-numbers) |
+| [0070-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0070-climbing-stairs) |
 ## Tree
 |  |
 | ------- |
@@ -147,4 +149,8 @@
 |  |
 | ------- |
 | [0146-lru-cache](https://github.com/KihaJeong1994/LeetCode/tree/master/0146-lru-cache) |
+## Memoization
+|  |
+| ------- |
+| [0070-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0070-climbing-stairs) |
 <!---LeetCode Topics End-->
