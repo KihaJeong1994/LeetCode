@@ -11,6 +11,7 @@
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/KihaJeong1994/LeetCode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/KihaJeong1994/LeetCode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0287-find-the-duplicate-number](https://github.com/KihaJeong1994/LeetCode/tree/master/0287-find-the-duplicate-number) |
+| [0747-min-cost-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0747-min-cost-climbing-stairs) |
 | [0907-koko-eating-bananas](https://github.com/KihaJeong1994/LeetCode/tree/master/0907-koko-eating-bananas) |
 ## Binary Search
 |  |
@@ -52,6 +53,7 @@
 | ------- |
 | [0070-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0070-climbing-stairs) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/KihaJeong1994/LeetCode/tree/master/0121-best-time-to-buy-and-sell-stock) |
+| [0747-min-cost-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0747-min-cost-climbing-stairs) |
 ## Stack
 |  |
 | ------- |
