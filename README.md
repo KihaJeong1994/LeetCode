@@ -10,6 +10,7 @@
 | [0084-largest-rectangle-in-histogram](https://github.com/KihaJeong1994/LeetCode/tree/master/0084-largest-rectangle-in-histogram) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/KihaJeong1994/LeetCode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/KihaJeong1994/LeetCode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
+| [0200-number-of-islands](https://github.com/KihaJeong1994/LeetCode/tree/master/0200-number-of-islands) |
 | [0287-find-the-duplicate-number](https://github.com/KihaJeong1994/LeetCode/tree/master/0287-find-the-duplicate-number) |
 | [0747-min-cost-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0747-min-cost-climbing-stairs) |
 | [0907-koko-eating-bananas](https://github.com/KihaJeong1994/LeetCode/tree/master/0907-koko-eating-bananas) |
@@ -26,6 +27,7 @@
 |  |
 | ------- |
 | [0074-search-a-2d-matrix](https://github.com/KihaJeong1994/LeetCode/tree/master/0074-search-a-2d-matrix) |
+| [0200-number-of-islands](https://github.com/KihaJeong1994/LeetCode/tree/master/0200-number-of-islands) |
 ## Hash Table
 |  |
 | ------- |
@@ -113,6 +115,7 @@
 | ------- |
 | [0100-same-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0100-same-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0104-maximum-depth-of-binary-tree) |
+| [0200-number-of-islands](https://github.com/KihaJeong1994/LeetCode/tree/master/0200-number-of-islands) |
 | [0226-invert-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0226-invert-binary-tree) |
 | [0543-diameter-of-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0572-subtree-of-another-tree) |
@@ -121,6 +124,7 @@
 | ------- |
 | [0100-same-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0100-same-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0104-maximum-depth-of-binary-tree) |
+| [0200-number-of-islands](https://github.com/KihaJeong1994/LeetCode/tree/master/0200-number-of-islands) |
 | [0226-invert-binary-tree](https://github.com/KihaJeong1994/LeetCode/tree/master/0226-invert-binary-tree) |
 ## Binary Tree
 |  |
@@ -155,4 +159,8 @@
 |  |
 | ------- |
 | [0070-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0070-climbing-stairs) |
+## Union Find
+|  |
+| ------- |
+| [0200-number-of-islands](https://github.com/KihaJeong1994/LeetCode/tree/master/0200-number-of-islands) |
 <!---LeetCode Topics End-->
