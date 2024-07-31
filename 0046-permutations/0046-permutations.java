@@ -1,34 +1,35 @@
 class Solution {
-    private List<List<Integer>> answerList = new ArrayList<>();
-    private int numsLength;
-    private int[] globalNums , emptyArr;
-    private boolean[] used;
+    List<List<Integer>> answer = new ArrayList<>();
+    Deque<Integer> stack = new ArrayDeque<>();
+    boolean[] used;
     public List<List<Integer>> permute(int[] nums) {
-        numsLength = nums.length;
-        emptyArr = new int[numsLength];
-        globalNums = nums;
-        for(int i=0; i<numsLength; i++){
-            used = new boolean[numsLength];
-            recFunc(i,0);
-        }
-        return answerList;
+        used = new boolean[nums.length];
+        recFunc(nums,0);
+        return answer;
     }
-    
-    public void recFunc(int i, int k){
-        emptyArr[k] = globalNums[i];
-        used[i] = true;
-        if(numsLength == k+1){
-            List<Integer> sample = new ArrayList<>();
-            for(Integer x : emptyArr) sample.add(x);
-            answerList.add(sample);
-        }else{
-            for(int j=0;j<numsLength;j++){
-                if(!used[j]){
-                  recFunc(j,k+1); 
-                  used[j] = false;
-                } 
+
+    private void recFunc(int[] nums, int cnt){
+        if(cnt==nums.length){
+            List<Integer> l = new ArrayList<>();
+            for(int n:stack){
+                l.add(n);
             }
-            
+            answer.add(l);
+        }else{
+            for(int i=0; i<nums.length; i++){
+                if(!used[i]){
+                    used[i]= true;
+                    stack.offer(nums[i]);
+                    recFunc(nums, cnt+1);
+                    stack.pollLast();
+                    used[i]= false;
+                }
+            }
+
         }
     }
+
+
+
+
 }
