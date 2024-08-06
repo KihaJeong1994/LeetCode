@@ -28,16 +28,15 @@ class Solution {
     }
 
     void dfsP(TreeNode root, TreeNode p){
-        if(root==null) return;
         if(root==p){
             pAncestorStack.offer(root);
             foundP = true;
             return;
         }
-        if(!foundP){
+        if(!foundP && root.left!=null){
             dfsP(root.left, p);
         }
-        if(!foundP){
+        if(!foundP && root.right!=null){
             dfsP(root.right, p);
         }
         if(foundP){
@@ -46,16 +45,15 @@ class Solution {
     }
 
     void dfsQ(TreeNode root, TreeNode p){
-        if(root==null) return;
         if(root==p){
             qAncestorSet.add(root);
             foundQ = true;
             return;
         }
-        if(!foundQ){
+        if(!foundQ && root.left!=null){
             dfsQ(root.left, p);
         }
-        if(!foundQ){
+        if(!foundQ && root.right!=null){
             dfsQ(root.right, p);
         }
         if(foundQ){
