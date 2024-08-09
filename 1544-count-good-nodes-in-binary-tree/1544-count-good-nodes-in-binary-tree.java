@@ -14,33 +14,27 @@
  * }
  */
 class Solution {
-    Map<TreeNode, TreeNode> nodeParentNode = new HashMap<>();
-    Map<TreeNode, Integer> nodeMaxVal = new HashMap<>();
     public int goodNodes(TreeNode root) {
-        int answer = 0;
+        int answer = 1;
         Deque<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while(!queue.isEmpty()){
             TreeNode node = queue.pollFirst();
-            if(!nodeParentNode.containsKey(node)){
-                answer++;
-                nodeMaxVal.put(node, node.val);
-            }else{
-                TreeNode parentNode = nodeParentNode.get(node);
-                int maxVal = nodeMaxVal.get(parentNode);
-                if(node.val>=maxVal){
-                    maxVal = node.val;
-                    answer++;
-                }
-                nodeMaxVal.put(node, maxVal);
-            }
             if(node.left!=null){
+                if(node.left.val>=node.val){
+                    answer++;
+                }else{
+                    node.left.val = node.val;
+                }
                 queue.offer(node.left);
-                nodeParentNode.put(node.left, node);
             }
             if(node.right!=null){
+                if(node.right.val>=node.val){
+                    answer++;
+                }else{
+                    node.right.val = node.val;
+                }
                 queue.offer(node.right);
-                nodeParentNode.put(node.right, node);
             }
         }
         return answer;
