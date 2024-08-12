@@ -1,52 +1,56 @@
 class Trie {
-    TrieNode head;
+    private TrieNode root;
+
     public Trie() {
-        this.head = new TrieNode();
+        root = new TrieNode();
     }
     
     public void insert(String word) {
-        TrieNode node = head;
-        for(int i=0; i<word.length(); i++){
-            char c = word.charAt(i);
-            TrieNode t = node.trieNodes.getOrDefault(c,new TrieNode());
-            node.trieNodes.put(c,t);
-            node = node.trieNodes.get(c);
+        TrieNode node = root;
+        char[] chars = word.toCharArray();
+        for(char c : chars){
+            int idx = c-'a';
+            if(node.childNodes[idx]==null){
+                node.childNodes[idx] = new TrieNode();
+            }
+            node = node.childNodes[idx];
         }
         node.isEnd = true;
     }
     
     public boolean search(String word) {
-        TrieNode node = head;
-        for(int i=0; i<word.length(); i++){
-            char c = word.charAt(i);
-            if(node.trieNodes.get(c)!=null){
-                node = node.trieNodes.get(c);    
-            }else{
+        TrieNode node = root;
+        char[] chars = word.toCharArray();
+        for(char c : chars){
+            int idx = c-'a';
+            if(node.childNodes[idx]==null){
                 return false;
+            }else{
+                node = node.childNodes[idx];
             }
         }
         return node.isEnd;
     }
     
     public boolean startsWith(String prefix) {
-        TrieNode node = head;
-        for(int i=0; i<prefix.length(); i++){
-            char c = prefix.charAt(i);
-            if(node.trieNodes.get(c)!=null){
-                node = node.trieNodes.get(c);    
-            }else{
+        TrieNode node = root;
+        char[] chars = prefix.toCharArray();
+        for(char c : chars){
+            int idx = c-'a';
+            if(node.childNodes[idx]==null){
                 return false;
+            }else{
+                node = node.childNodes[idx];
             }
         }
         return true;
     }
-    
-    static class TrieNode{
-        Map<Character, TrieNode> trieNodes;
+
+    private static class TrieNode{
+        TrieNode[] childNodes;
         boolean isEnd;
         TrieNode(){
-            this.trieNodes = new HashMap<>();
-            this.isEnd = false;
+            childNodes = new TrieNode[26];
         }
     }
 }
