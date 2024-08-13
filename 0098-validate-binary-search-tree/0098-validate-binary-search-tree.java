@@ -14,28 +14,15 @@
  * }
  */
 class Solution {
-    Integer prev = null;
-    int curr = 0;
-    boolean answer = true;
     public boolean isValidBST(TreeNode root) {
-        traverse(root);
-        return answer;
+        return dfs(root, Long.valueOf(Integer.MIN_VALUE)-1, Long.valueOf(Integer.MAX_VALUE)+1);
     }
 
-    void traverse(TreeNode node){
-        if(node.left!=null) traverse(node.left);
-        if(prev==null){
-            prev = node.val;
-            curr = node.val;
-        }else{
-            curr = node.val;
-            if(prev>=curr){
-                answer = false;
-                return;
-            }else {
-                prev = node.val;
-            }
-        }
-        if(node.right!=null) traverse(node.right);
+    private boolean dfs(TreeNode root, long minVal, long maxVal){
+        if(root==null) return true;
+        if(Long.valueOf(root.val)<=minVal || Long.valueOf(root.val)>=maxVal) return false;
+        boolean left = dfs(root.left, minVal, Math.min(maxVal, Long.valueOf(root.val)));
+        boolean right = dfs(root.right, Math.max(minVal, Long.valueOf(root.val)), maxVal);
+        return left && right;
     }
 }
