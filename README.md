@@ -16,6 +16,7 @@
 | [0287-find-the-duplicate-number](https://github.com/KihaJeong1994/LeetCode/tree/master/0287-find-the-duplicate-number) |
 | [0747-min-cost-climbing-stairs](https://github.com/KihaJeong1994/LeetCode/tree/master/0747-min-cost-climbing-stairs) |
 | [0907-koko-eating-bananas](https://github.com/KihaJeong1994/LeetCode/tree/master/0907-koko-eating-bananas) |
+| [1127-last-stone-weight](https://github.com/KihaJeong1994/LeetCode/tree/master/1127-last-stone-weight) |
 ## Binary Search
 |  |
 | ------- |
@@ -211,6 +212,7 @@
 |  |
 | ------- |
 | [0789-kth-largest-element-in-a-stream](https://github.com/KihaJeong1994/LeetCode/tree/master/0789-kth-largest-element-in-a-stream) |
+| [1127-last-stone-weight](https://github.com/KihaJeong1994/LeetCode/tree/master/1127-last-stone-weight) |
 ## Data Stream
 |  |
 | ------- |
