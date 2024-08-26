@@ -12,10 +12,7 @@ class Solution {
 
     private void backTracking(int currIdx, int[] nums, int cnt, int total){
         if(cnt==total){
-            List<Integer> answerSample = new ArrayList<>();
-            for(int i : sample){
-                answerSample.add(i);
-            }
+            List<Integer> answerSample = new ArrayList<>(sample);
             if(!answerSet.contains(answerSample)){
                 answer.add(answerSample);
                 answerSet.add(answerSample);
